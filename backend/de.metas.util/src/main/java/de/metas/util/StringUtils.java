@@ -25,7 +25,7 @@ package de.metas.util;
 import com.google.common.base.CharMatcher;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import de.metas.common.util.Check;
+import de.metas.util.Check;
 import lombok.NonNull;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.jetbrains.annotations.Contract;

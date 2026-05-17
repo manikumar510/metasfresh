@@ -56,7 +56,7 @@ public class AnonymousScript implements IScript
 	private long lastDurationMillis = -1;
 
 	@Builder
-	private AnonymousScript(
+	public AnonymousScript(
 			@NonNull final String fileName,
 			@NonNull final String scriptContent,
 			final String projectName,
@@ -84,5 +84,34 @@ public class AnonymousScript implements IScript
 	{
 		final InputStream in = new ByteArrayInputStream(scriptContent.getBytes(StandardCharsets.UTF_8));
 		return FileUtils.createLocalFile(getFileName(), in);
+	}
+
+	@Override
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public String getModuleName() {
+		return moduleName;
+	}
+
+	@Override
+	public String getFileName() {
+		return fileName;
+	}
+
+	@Override
+	public ScriptType getType() {
+		return type;
+	}
+
+	@Override
+	public long getLastDurationMillis() {
+		return lastDurationMillis;
+	}
+
+	@Override
+	public void setLastDurationMillis(long lastDurationMillis) {
+		this.lastDurationMillis = lastDurationMillis;
 	}
 }

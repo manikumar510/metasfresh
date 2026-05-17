@@ -6,9 +6,8 @@ import de.metas.migration.applier.IScriptsApplierListener;
 import de.metas.migration.applier.impl.NullScriptsApplierListener;
 import de.metas.migration.scanner.IFileRef;
 import lombok.Builder;
-import lombok.Builder.Default;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Value;
 
 /*
  * #%L
@@ -38,65 +37,65 @@ import lombok.Value;
  * @author metas-dev <dev@metasfresh.com>
  */
 @Builder
-@Value
+@Data
 public
 class RolloutMigrationConfig
 {
 	public static final String DEFAULT_SETTINGS_FILENAME = "local_settings.properties";
 
-	@Default
-	boolean canRun = false;
+	@Builder.Default
+	private boolean canRun = false;
 
 	@NonNull
-	@Default
-	String rolloutDirName = CommandlineParams.DEFAULT_RolloutDirectory;
+	@Builder.Default
+	private String rolloutDirName = CommandlineParams.DEFAULT_RolloutDirectory;
 
 	/**
 	 * If specified, the tools shall load the {@link #dbConnectionSettings} from this file.
 	 */
-	@Default
-	String dataBaseSettingsFile = null;
+	@Builder.Default
+	private String dataBaseSettingsFile = null;
 
 	/**
 	 * If specified, the tool shall ignore all files and use these settings.
 	 */
-	@Default
-	DBConnectionSettings dbConnectionSettings = null;
+	@Builder.Default
+	private DBConnectionSettings dbConnectionSettings = null;
 
-	@Default
-	String scriptFileName = null;
+	@Builder.Default
+	private String scriptFileName = null;
 
-	@Default
-	IScriptsApplierListener scriptsApplierListener = NullScriptsApplierListener.instance;
+	@Builder.Default
+	private IScriptsApplierListener scriptsApplierListener = NullScriptsApplierListener.instance;
 
-	@Default
-	boolean justMarkScriptAsExecuted = false;
+	@Builder.Default
+	private boolean justMarkScriptAsExecuted = false;
 
 	/**
 	 * By default we will check the versions.
 	 */
-	@Default
-	boolean checkVersions = true;
+	@Builder.Default
+	private boolean checkVersions = true;
 
 	/**
 	 * By default we will store our won version in the DB after a successful update.
 	 */
-	@Default
-	boolean storeVersion = true;
+	@Builder.Default
+	private boolean storeVersion = true;
 
 	/**
 	 * If the DB version is already ahead of our local rollout package usually means that something is wrong, so by default the rollout shall fail.
 	 */
-	@Default
-	boolean failIfRolloutIsGreaterThanDB = true;
+	@Builder.Default
+	private boolean failIfRolloutIsGreaterThanDB = true;
 
-	@Default
-	String templateDBName = null;
+	@Builder.Default
+	private String templateDBName = null;
 
-	@Default
-	String newDBName = null;
+	@Builder.Default
+	private String newDBName = null;
 
-	@Default
 	@NonNull
-	ImmutableSet<IFileRef> additionalSqlDirs = ImmutableSet.of();
+	@Builder.Default
+	private ImmutableSet<IFileRef> additionalSqlDirs = ImmutableSet.of();
 }

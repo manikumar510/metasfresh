@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.Singular;
-import lombok.Value;
+import lombok.Data;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,7 +33,7 @@ import java.util.Properties;
  * #L%
  */
 
-@Value
+@Data
 @Builder
 public class DirectoryProperties
 {

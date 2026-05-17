@@ -71,7 +71,12 @@
 			<artifactId>metasfresh-invoice_gateway.api</artifactId>
 			<version>${metasfresh.version}</version>
 		</dependency>
-
+        <dependency>
+            <groupId>de.metas.common.pricing</groupId>
+            <artifactId>de-metas-common-pricing</artifactId>
+            <version>${metasfresh-common.version}</version>
+            <scope>compile</scope>
+        </dependency>
 		<dependency>
 			<groupId>de.metas.common.product</groupId>
 			<artifactId>de-metas-common-product</artifactId>

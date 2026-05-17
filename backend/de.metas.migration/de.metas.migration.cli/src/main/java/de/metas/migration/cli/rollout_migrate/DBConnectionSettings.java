@@ -22,13 +22,11 @@
 
 package de.metas.migration.cli.rollout_migrate;
 
+import lombok.Data;
 import lombok.Builder;
-import lombok.ToString;
-import lombok.Value;
 
-@Value
+@Data
 @Builder
-@ToString(exclude = { "dbPassword" })
 public class DBConnectionSettings
 {
 	String dbName;

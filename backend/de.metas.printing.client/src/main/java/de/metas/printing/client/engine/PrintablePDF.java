@@ -120,7 +120,7 @@ public class PrintablePDF implements Printable
 		final Dimension scaledToPageFormat = pdfPage.getUnstretchedSize(
 				(int)format.getImageableWidth(),
 				(int)format.getImageableHeight(),
-				pdfPage.getPageBox());
+				pdfPage.getBBox());
 
 		final int widthToUse;
 		final int heightToUse;

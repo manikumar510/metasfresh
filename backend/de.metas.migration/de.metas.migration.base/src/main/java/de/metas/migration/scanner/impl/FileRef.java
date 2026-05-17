@@ -30,22 +30,17 @@ import java.io.InputStream;
 import de.metas.migration.exception.ScriptException;
 import de.metas.migration.scanner.IFileRef;
 import de.metas.migration.scanner.IScriptScanner;
-import lombok.Getter;
 import lombok.ToString;
 
 @ToString(of = { "fileName", "virtual", "localFile" })
 public class FileRef implements IFileRef
 {
-	@Getter
 	private final IScriptScanner scriptScanner;
 
-	@Getter
 	private final IFileRef parent;
 
-	@Getter
 	private final String fileName;
 
-	@Getter
 	private final boolean virtual;
 
 	private final File localFile;
@@ -120,5 +115,25 @@ public class FileRef implements IFileRef
 			inputStream = in;
 		}
 		return inputStream;
+	}
+
+	@Override
+	public IFileRef getParent() {
+		return parent;
+	}
+
+	@Override
+	public String getFileName() {
+		return fileName;
+	}
+
+	@Override
+	public boolean isVirtual() {
+		return virtual;
+	}
+
+	@Override
+	public IScriptScanner getScriptScanner() {
+		return scriptScanner;
 	}
 }

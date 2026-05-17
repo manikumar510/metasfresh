@@ -16,6 +16,8 @@
 
 	<properties>
 		<metasfresh.version>[1,10.0.0]</metasfresh.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>

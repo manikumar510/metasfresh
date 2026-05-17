@@ -50,7 +50,7 @@ public class CreateDBFromTemplateScript implements IScript
 	private long lastDurationMillis = -1;
 
 	@Builder
-	private CreateDBFromTemplateScript(
+	public CreateDBFromTemplateScript(
 			final String newOwner,
 			final String newDBName,
 			final String templateDBName)
@@ -86,5 +86,15 @@ public class CreateDBFromTemplateScript implements IScript
 		final InputStream stream = new ByteArrayInputStream(command.getBytes(StandardCharsets.UTF_8));
 
 		return FileUtils.createLocalFile(getFileName(), stream);
+	}
+
+	@Override
+	public long getLastDurationMillis() {
+		return lastDurationMillis;
+	}
+
+	@Override
+	public void setLastDurationMillis(long lastDurationMillis) {
+		this.lastDurationMillis = lastDurationMillis;
 	}
 }

@@ -43,7 +43,7 @@ public class GlobalQRCode
 			throw Check.mkEx("Failed converting payload to json: " + payload, ex);
 		}
 
-		return builder()
+		return GlobalQRCode.builder()
 				.type(type)
 				.version(version)
 				.payloadAsJson(payloadAsJson)
@@ -103,7 +103,7 @@ public class GlobalQRCode
 		final String payloadAsJson = remainingString;
 
 		//
-		return GlobalQRCodeParseResult.ok(builder()
+		return GlobalQRCodeParseResult.ok(GlobalQRCode.builder()
 				.type(type)
 				.version(version)
 				.payloadAsJson(payloadAsJson)

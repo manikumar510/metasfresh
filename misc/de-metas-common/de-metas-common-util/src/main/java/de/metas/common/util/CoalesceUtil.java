@@ -42,14 +42,14 @@ public class CoalesceUtil
 	 */
 	@Contract("null, _ -> param2")
 	@Nullable
-	public <T> T coalesce(@Nullable final T value1, @Nullable final T value2)
+	public static <T> T coalesce(@Nullable final T value1, @Nullable final T value2)
 	{
 		return value1 == null ? value2 : value1;
 	}
 
 	@Contract("null, _ -> param2")
 	@NonNull
-	public <T> T coalesceNotNull(@Nullable final T value1, @Nullable final T value2)
+	public static <T> T coalesceNotNull(@Nullable final T value1, @Nullable final T value2)
 	{
 		final T result = value1 == null ? value2 : value1;
 		if (result == null)
@@ -60,13 +60,13 @@ public class CoalesceUtil
 	}
 
 	@Nullable
-	public <T> T coalesce(@Nullable final T value1, @Nullable final Supplier<T> value2)
+	public static <T> T coalesce(@Nullable final T value1, @Nullable final Supplier<T> value2)
 	{
 		return value1 != null ? value1 : (value2 != null ? value2.get() : null);
 	}
 
 	@NonNull
-	public <T> T coalesceNotNull(@Nullable final T value1, @NonNull final Supplier<T> value2Supplier)
+	public static <T> T coalesceNotNull(@Nullable final T value1, @NonNull final Supplier<T> value2Supplier)
 	{
 		if (value1 != null)
 		{
@@ -91,14 +91,14 @@ public class CoalesceUtil
 	// NOTE: this method is optimized for common usage
 	@Contract("null, null, _ -> param3")
 	@Nullable
-	public <T> T coalesce(@Nullable final T value1, @Nullable final T value2, @Nullable final T value3)
+	public static <T> T coalesce(@Nullable final T value1, @Nullable final T value2, @Nullable final T value3)
 	{
 		return value1 != null ? value1 : (value2 != null ? value2 : value3);
 	}
 
 	@Contract("null, null, _ -> param3")
 	@NonNull
-	public <T> T coalesceNotNull(@Nullable final T value1, @Nullable final T value2, @Nullable final T value3)
+	public static <T> T coalesceNotNull(@Nullable final T value1, @Nullable final T value2, @Nullable final T value3)
 	{
 		final T result = value1 != null ? value1 : (value2 != null ? value2 : value3);
 		if (result == null)
@@ -114,7 +114,7 @@ public class CoalesceUtil
 	@Contract("null -> null")
 	@SafeVarargs
 	@Nullable
-	public <T> T coalesce(@Nullable final T... values)
+	public static <T> T coalesce(@Nullable final T... values)
 	{
 		if (values == null)
 		{
@@ -132,7 +132,7 @@ public class CoalesceUtil
 
 	@SafeVarargs
 	@NonNull
-	public <T> T coalesceNotNull(@NonNull final T... values)
+	public static <T> T coalesceNotNull(@NonNull final T... values)
 	{
 		final T result = coalesce(values);
 		if (result == null)
@@ -192,7 +192,7 @@ public class CoalesceUtil
 
 	@SafeVarargs
 	@Nullable
-	public <T> T firstValidValue(@NonNull final Predicate<T> isValidPredicate, @Nullable final Supplier<T>... values)
+	public static <T> T firstValidValue(@NonNull final Predicate<T> isValidPredicate, @Nullable final Supplier<T>... values)
 	{
 		if (values == null)
 		{
@@ -217,7 +217,7 @@ public class CoalesceUtil
 	 *
 	 * @return first greater than zero value or zero
 	 */
-	public int firstGreaterThanZero(final int... values)
+	public static int firstGreaterThanZero(final int... values)
 	{
 		if (values == null)
 		{
@@ -239,14 +239,14 @@ public class CoalesceUtil
 	 * @return first greater than zero value or zero
 	 */
 	@NonNull
-	public BigDecimal firstGreaterThanZero(@Nullable final BigDecimal... values)
+	public static BigDecimal firstGreaterThanZero(@Nullable final BigDecimal... values)
 	{
 		return firstPositiveOrZero(values);
 	}
 
 	@SafeVarargs
 	@NonNull
-	public BigDecimal firstGreaterThanZeroBigDecimalSupplier(@NonNull final Supplier<BigDecimal>... suppliers)
+	public static BigDecimal firstGreaterThanZeroBigDecimalSupplier(@NonNull final Supplier<BigDecimal>... suppliers)
 	{
 		if (suppliers == null)
 		{
@@ -264,7 +264,7 @@ public class CoalesceUtil
 	}
 
 	@SafeVarargs
-	public int firstGreaterThanZeroIntegerSupplier(@NonNull final Supplier<Integer>... suppliers)
+	public static int firstGreaterThanZeroIntegerSupplier(@NonNull final Supplier<Integer>... suppliers)
 	{
 		if (suppliers == null)
 		{
@@ -282,7 +282,7 @@ public class CoalesceUtil
 	}
 
 	@NonNull
-	public String firstNotEmptyTrimmedNotNull(@Nullable final String... values)
+	public static String firstNotEmptyTrimmedNotNull(@Nullable final String... values)
 	{
 		return Check.assumeNotNull(firstNotEmptyTrimmed(values), "At least one of the given values is not empty {}");
 	}
@@ -291,13 +291,13 @@ public class CoalesceUtil
 	 * @return the first non-empty string or {@code null}.
 	 */
 	@Nullable
-	public String firstNotEmptyTrimmed(@Nullable final String... values)
+	public static String firstNotEmptyTrimmed(@Nullable final String... values)
 	{
 		return firstNotBlank(values);
 	}
 
 	@Nullable
-	public String firstNotBlank(@Nullable final String... values)
+	public static String firstNotBlank(@Nullable final String... values)
 	{
 		if(values == null)
 		{
@@ -318,7 +318,7 @@ public class CoalesceUtil
 
 	@Nullable
 	@SafeVarargs
-	public String firstNotBlank(@Nullable final Supplier<String>... valueSuppliers)
+	public static String firstNotBlank(@Nullable final Supplier<String>... valueSuppliers)
 	{
 		if(valueSuppliers == null)
 		{
@@ -343,7 +343,7 @@ public class CoalesceUtil
 		return null;
 	}
 
-	public boolean isAllNotNulls(final Object... values)
+	public static boolean isAllNotNulls(final Object... values)
 	{
 		for (final Object value : values)
 		{
@@ -356,7 +356,7 @@ public class CoalesceUtil
 		return true;
 	}
 
-	public int countNotNulls(@Nullable final Object... values)
+	public static int countNotNulls(@Nullable final Object... values)
 	{
 		if (values == null || values.length == 0)
 		{
@@ -376,7 +376,7 @@ public class CoalesceUtil
 	}
 
 	@NonNull
-	public BigDecimal firstPositiveOrZero(@Nullable final BigDecimal... values)
+	public static BigDecimal firstPositiveOrZero(@Nullable final BigDecimal... values)
 	{
 		if (values == null)
 		{

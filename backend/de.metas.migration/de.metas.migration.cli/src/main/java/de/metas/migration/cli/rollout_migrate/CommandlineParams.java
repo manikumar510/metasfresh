@@ -3,7 +3,6 @@ package de.metas.migration.cli.rollout_migrate;
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableSet;
 import de.metas.migration.applier.impl.ConsoleScriptsApplierListener;
-import de.metas.migration.cli.rollout_migrate.RolloutMigrationConfig.RolloutMigrationConfigBuilder;
 import de.metas.migration.scanner.IFileRef;
 import de.metas.migration.scanner.impl.FileRef;
 import de.metas.migration.util.FileUtils;
@@ -193,7 +192,7 @@ class CommandlineParams
 			return RolloutMigrationConfig.builder().rolloutDirName("not relevant").canRun(false).build();
 		}
 
-		final RolloutMigrationConfigBuilder configBuilder = RolloutMigrationConfig.builder();
+		final RolloutMigrationConfig.RolloutMigrationConfigBuilder configBuilder = RolloutMigrationConfig.builder();
 
 		final String rolloutDir = cmd.getOptionValue(OPTION_RolloutDirectory, DEFAULT_RolloutDirectory);
 		configBuilder.rolloutDirName(stripQuotes(rolloutDir));

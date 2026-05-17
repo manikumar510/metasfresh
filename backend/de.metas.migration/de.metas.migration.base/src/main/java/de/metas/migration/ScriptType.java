@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.NonNull;
-import lombok.Value;
 
 /*
  * #%L
@@ -28,11 +27,8 @@ import lombok.Value;
  * #L%
  */
 
-@Value
-public class ScriptType
-{
-	public static ScriptType ofFileExtension(final String fileExtension)
-	{
+public class ScriptType {
+	public static ScriptType ofFileExtension(final String fileExtension) {
 		return scriptTypesByFileExtension.computeIfAbsent(
 				normalizeFileExtension(fileExtension),
 				ScriptType::new);
@@ -42,23 +38,23 @@ public class ScriptType
 	public static final ScriptType SQL = new ScriptType("sql");
 
 	private static final Map<String, ScriptType> scriptTypesByFileExtension = new HashMap<>();
-	static
-	{
+	static {
 		scriptTypesByFileExtension.put(NONE.getFileExtension(), NONE);
 		scriptTypesByFileExtension.put(SQL.getFileExtension(), SQL);
 	}
 
 	private final String fileExtension;
 
-	private ScriptType(@NonNull final String fileExtension)
-	{
+	private ScriptType(@NonNull final String fileExtension) {
 		this.fileExtension = normalizeFileExtension(fileExtension);
 	}
 
-	private static final String normalizeFileExtension(final String fileExtension)
-	{
-		if (fileExtension == null)
-		{
+	public String getFileExtension() {
+		return fileExtension;
+	}
+
+	private static String normalizeFileExtension(final String fileExtension) {
+		if (fileExtension == null) {
 			return "";
 		}
 

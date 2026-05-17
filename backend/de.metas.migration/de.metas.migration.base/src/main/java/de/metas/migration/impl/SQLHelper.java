@@ -164,6 +164,16 @@ public class SQLHelper
 	}
 
 	/**
+	 * Public API to retrieve records using the instance's database.
+	 */
+	public <T> Collection<T> retrieveRecords(
+			@NonNull final String sql,
+			@NonNull final Supplier<Collection<T>> collectionFactory,
+			@NonNull final ResultSetRowLoader<T> rowLoader) {
+		return retrieveRecordsExecutor(sql, Collections.emptyList(), collectionFactory, rowLoader);
+	}
+
+	/**
 	 * Set PreparedStatement's parameter. Similar with calling <code>pstmt.setObject(index, param)</code>
 	 *
 	 * @param pstmt

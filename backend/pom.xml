@@ -28,7 +28,7 @@
         <artifactId>de.metas.parent.general</artifactId>
         <groupId>de.metas</groupId>
         <version>10.0.0</version>
-        <relativePath>../misc/parent-pom/pom.xml</relativePath>
+<!--        <relativePath>../misc/parent-pom/pom.xml</relativePath>-->
     </parent>
 
     <artifactId>de.metas.parent</artifactId>
@@ -69,6 +69,8 @@
 
         <acceptance.reports.dir>target/acceptance-reports</acceptance.reports.dir>
 
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <!-- FRESH-271 by declaring those three reactor poms as modules of this

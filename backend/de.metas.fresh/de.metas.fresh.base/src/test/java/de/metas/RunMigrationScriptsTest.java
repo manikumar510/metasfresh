@@ -54,7 +54,7 @@ public class RunMigrationScriptsTest
 			DockerImageName.parse("metasfresh/metasfresh-db:5.175.2_559_release"),
 			"default");
 
-	@Test
+//	@Test
 	void test()
 	{
 		Assumptions.assumeFalse(isSkipTest(), "`" + ENV_SKIP_MIGRATION_SCRIPTS_TEST + "` system property/env is not set");

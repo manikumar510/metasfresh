@@ -108,6 +108,12 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-swagger.version}</version>
 		</dependency>
+        <!-- https://github.com/hoereth/springfox-enum-plugin -->
+        <dependency>
+            <groupId>de.pentabyte</groupId>
+            <artifactId>springfox-enum-plugin</artifactId>
+            <version>${springfox-enum-plugin.version}</version>
+        </dependency>
 
 		<dependency>
 			<groupId>de.metas.util</groupId>
@@ -153,4 +159,10 @@
 		</dependency>
     </dependencies>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 </project>

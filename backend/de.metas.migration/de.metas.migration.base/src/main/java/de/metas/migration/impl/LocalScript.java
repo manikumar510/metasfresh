@@ -65,4 +65,34 @@ public class LocalScript implements IScript
 		type = FileUtils.getScriptTypeByFilename(filename);
 		localFile = FileUtils.createLocalFile(filename, in);
 	}
+
+	@Override
+	public String getProjectName() {
+		return projectName;
+	}
+
+	@Override
+	public String getFileName() {
+		return fileName;
+	}
+
+	@Override
+	public ScriptType getType() {
+		return type;
+	}
+
+	@Override
+	public File getLocalFile() {
+		return localFile;
+	}
+
+	@Override
+	public long getLastDurationMillis() {
+		return lastDurationMillis;
+	}
+
+	@Override
+	public void setLastDurationMillis(long lastDurationMillis) {
+		this.lastDurationMillis = lastDurationMillis;
+	}
 }

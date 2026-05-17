@@ -34,6 +34,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NonNull;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,13 +54,10 @@ import de.metas.migration.executor.IScriptExecutor;
 import de.metas.migration.impl.AnonymousScript;
 import de.metas.migration.impl.SQLDatabase;
 import de.metas.migration.impl.SQLHelper;
-import lombok.Builder;
-import lombok.NonNull;
-import lombok.Value;
 
 public class PostgresqlNativeExecutor implements IScriptExecutor
 {
-	private static final transient Logger logger = LoggerFactory.getLogger(PostgresqlNativeExecutor.class);
+	private static final Logger logger = LoggerFactory.getLogger(PostgresqlNativeExecutor.class);
 
 	private static final String ENV_PG_HOME = "PG_HOME";
 	private static final String ENV_PGPASSWORD = "PGPASSWORD";
@@ -77,7 +79,7 @@ public class PostgresqlNativeExecutor implements IScriptExecutor
 		//
 		// Configure: psql command
 		final String pgHome = getEnv(ENV_PG_HOME);
-		if (pgHome == null || pgHome.trim().length() == 0)
+		if (pgHome == null || pgHome.trim().isEmpty())
 		{
 			command = "psql";
 		}
@@ -89,7 +91,7 @@ public class PostgresqlNativeExecutor implements IScriptExecutor
 		//
 		// Configure: psql command arguments
 		{
-			args = new ArrayList<String>();
+			args = new ArrayList<>();
 			addParameter(args, "-h", database.getDbHostname());
 			addParameter(args, "-p", database.getDbPort());
 			addParameter(args, "-d", database.getDbName());
@@ -109,7 +111,7 @@ public class PostgresqlNativeExecutor implements IScriptExecutor
 		//
 		// Configure: psql running environment
 		{
-			environment = new HashMap<String, String>();
+			environment = new HashMap<>();
 
 			if (database.getDbPassword() != null)
 			{
@@ -133,13 +135,12 @@ public class PostgresqlNativeExecutor implements IScriptExecutor
 
 	private String getEnv(final String name)
 	{
-		final String value = System.getenv(name);
-		return value;
+		return System.getenv(name);
 	}
 
 	private static void addParameter(final List<String> args, final String paramName, final String value)
 	{
-		if (value == null || value.trim().length() == 0)
+		if (value == null || value.trim().isEmpty())
 		{
 			return;
 		}
@@ -183,14 +184,12 @@ public class PostgresqlNativeExecutor implements IScriptExecutor
 					.setLog(logTail);
 		}
 
-		return ScriptExecutionResult.builder()
-				.logTail(logTail)
-				.build();
+		return ScriptExecutionResult.ofLogTail(logTail);
 	}
 
 	private Process startProcess(final IScript script)
 	{
-		final List<String> cmdarrayList = new ArrayList<String>();
+		final List<String> cmdarrayList = new ArrayList<>();
 		cmdarrayList.add(command);
 		cmdarrayList.addAll(args);
 		addParameter(cmdarrayList, "-f", script.getLocalFile().getAbsolutePath());
@@ -268,12 +267,15 @@ public class PostgresqlNativeExecutor implements IScriptExecutor
 			return;
 		}
 
-		final AnonymousScript script = AnonymousScript.builder()
-				.fileName("after_migration.sql")
-				.scriptContent(functionNames.stream()
-						.map(functionName -> "select " + functionName + "();\n")
-						.collect(Collectors.joining()))
-				.build();
+		// Use constructor instead of builder for AnonymousScript
+        final AnonymousScript script = new AnonymousScript(
+            "after_migration.sql",
+            functionNames.stream()
+                .map(functionName -> "select " + functionName + "();\n")
+                .collect(Collectors.joining()),
+            null,
+            null
+        );
 
 		final Stopwatch stopwatch = Stopwatch.createStarted();
 		final int logTailSize = -1; // full log
@@ -286,11 +288,21 @@ public class PostgresqlNativeExecutor implements IScriptExecutor
 				Joiner.on("\n").join(result.getLogTail()));
 	}
 
-	@Builder
-	@Value
-	private static class ScriptExecutionResult
-	{
-		@NonNull
-		final ImmutableList<String> logTail;
-	}
+    @Getter
+    public static class ScriptExecutionResult {
+        @NonNull
+        private final ImmutableList<String> logTail;
+
+        public ScriptExecutionResult(final ImmutableList<String> logTail) {
+            this.logTail = logTail;
+        }
+
+        public static ScriptExecutionResult ofLogTail(final ImmutableList<String> logTail) {
+            return new ScriptExecutionResult(logTail);
+        }
+
+        public ImmutableList<String> getLogTail() {
+            return logTail;
+        }
+    }
 }

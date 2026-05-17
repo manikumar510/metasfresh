@@ -49,7 +49,7 @@ public class SwaggerUtil
 			.required(false) // not required because we have some endpoints which are excluded (like the /auth one)
 			.build();
 
-	public ApiInfo createApiInfo(
+	public static ApiInfo createApiInfo(
 			@NonNull final String title,
 			@NonNull final String description)
 	{

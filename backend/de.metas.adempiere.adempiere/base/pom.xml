@@ -20,13 +20,28 @@
     </properties>
 
     <dependencies>
+        <!-- Source: https://mvnrepository.com/artifact/org.jpedal/jpedal -->
+        <dependency>
+            <groupId>org.jpedal</groupId>
+            <artifactId>jpedal</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.2.20</version>
+        </dependency>
 
         <dependency>
             <groupId>de.metas.util</groupId>
             <artifactId>de.metas.util</artifactId>
             <version>${metasfresh.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>de.metas.common.rest_api</groupId>
+            <artifactId>de-metas-common-rest_api</artifactId>
+            <version>${metasfresh-common.version}</version>
+        </dependency>
         <dependency>
             <groupId>de.metas.monitoring</groupId>
             <artifactId>de.metas.monitoring</artifactId>

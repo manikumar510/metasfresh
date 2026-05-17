@@ -38,7 +38,7 @@ public class EmptyUtil
 	 * <li>a blank string</li>
 	 */
 	@Contract("null -> true")
-	public boolean isEmpty(@Nullable final Object value)
+	public static boolean isEmpty(@Nullable final Object value)
 	{
 		if (value == null)
 		{
@@ -67,7 +67,7 @@ public class EmptyUtil
 	}
 
 	@Contract("null -> true")
-	public boolean isEmpty(@Nullable final String str)
+	public static boolean isEmpty(@Nullable final String str)
 	{
 		return isEmpty(str, false);
 	}
@@ -76,7 +76,7 @@ public class EmptyUtil
 	 * @return return true if the string is null, has length 0, or contains only whitespace.
 	 */
 	@Contract("null -> true")
-	public boolean isBlank(@Nullable final String str)
+	public static boolean isBlank(@Nullable final String str)
 	{
 		return isEmpty(str, true);
 	}
@@ -85,7 +85,7 @@ public class EmptyUtil
 	 * @return return true if the string is not null, has length > 0, and does not contain only whitespace.
 	 */
 	@Contract("null -> false")
-	public boolean isNotBlank(@Nullable final String str)
+	public static boolean isNotBlank(@Nullable final String str)
 	{
 		return !isEmpty(str, true);
 	}
@@ -98,7 +98,7 @@ public class EmptyUtil
 	 * @return true if >= 1 char
 	 */
 	@Contract("null, _ -> true")
-	public boolean isEmpty(@Nullable final String str, final boolean trimWhitespaces)
+	public static boolean isEmpty(@Nullable final String str, final boolean trimWhitespaces)
 	{
 		if (str == null)
 		{
@@ -118,7 +118,7 @@ public class EmptyUtil
 	 * @return true if the array is null or it's length is zero.
 	 */
 	@Contract("null -> true")
-	public <T> boolean isEmpty(@Nullable final T[] arr)
+	public static <T> boolean isEmpty(@Nullable final T[] arr)
 	{
 		return arr == null || arr.length == 0;
 	}
@@ -127,7 +127,7 @@ public class EmptyUtil
 	 * @return true if given collection is <code>null</code> or it has no elements
 	 */
 	@Contract("null -> true")
-	public boolean isEmpty(@Nullable final Collection<?> collection)
+	public static boolean isEmpty(@Nullable final Collection<?> collection)
 	{
 		return collection == null || collection.isEmpty();
 	}

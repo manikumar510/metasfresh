@@ -39,12 +39,10 @@ import de.metas.migration.ScriptType;
 import de.metas.migration.exception.ScriptException;
 import de.metas.migration.executor.IScriptExecutor;
 import de.metas.migration.executor.IScriptExecutorFactory;
-import lombok.NonNull;
-import lombok.Value;
 
 public class DefaultScriptExecutorFactory implements IScriptExecutorFactory
 {
-	private static final transient Logger logger = LoggerFactory.getLogger(DefaultScriptExecutorFactory.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(DefaultScriptExecutorFactory.class.getName());
 
 	private final Map<ScriptExecutorKey, Class<? extends IScriptExecutor>> scriptExecutorClasses = new HashMap<>();
 	private final Set<ScriptType> supportedScriptTypes = new HashSet<>();
@@ -72,7 +70,7 @@ public class DefaultScriptExecutorFactory implements IScriptExecutorFactory
 	public void registerScriptExecutorClass(
 			final String dbType,
 			final ScriptType scriptType,
-			@NonNull final Class<? extends IScriptExecutor> executorClass)
+			final Class<? extends IScriptExecutor> executorClass)
 	{
 		if (executorClass == null)
 		{
@@ -148,8 +146,7 @@ public class DefaultScriptExecutorFactory implements IScriptExecutorFactory
 
 		try
 		{
-			final IScriptExecutor executor = scriptExecutorClass.getConstructor(IDatabase.class).newInstance(targetDatabase);
-			return executor;
+			return scriptExecutorClass.getConstructor(IDatabase.class).newInstance(targetDatabase);
 		}
 		catch (final Exception e)
 		{
@@ -180,10 +177,31 @@ public class DefaultScriptExecutorFactory implements IScriptExecutorFactory
 		return dryRunMode;
 	}
 
-	@Value(staticConstructor = "of")
-	private static class ScriptExecutorKey
-	{
-		final String dbType;
-		final ScriptType scriptType;
-	}
+    private static class ScriptExecutorKey {
+        private final String dbType;
+        private final ScriptType scriptType;
+
+        private ScriptExecutorKey(String dbType, ScriptType scriptType) {
+            this.dbType = dbType;
+            this.scriptType = scriptType;
+        }
+
+        public static ScriptExecutorKey of(String dbType, ScriptType scriptType) {
+            return new ScriptExecutorKey(dbType, scriptType);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            ScriptExecutorKey that = (ScriptExecutorKey) o;
+            return java.util.Objects.equals(dbType, that.dbType) &&
+                    java.util.Objects.equals(scriptType, that.scriptType);
+        }
+
+        @Override
+        public int hashCode() {
+            return java.util.Objects.hash(dbType, scriptType);
+        }
+    }
 }

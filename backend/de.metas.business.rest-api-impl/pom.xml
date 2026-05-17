@@ -154,6 +154,12 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>de.metas.common.changelog</groupId>
+            <artifactId>de-metas-common-changelog</artifactId>
+            <version>${metasfresh-common.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>de.metas.common.pricing</groupId>
             <artifactId>de-metas-common-pricing</artifactId>
             <version>${metasfresh-common.version}</version>

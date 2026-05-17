@@ -34,13 +34,13 @@ import com.google.common.base.Suppliers;
 
 import de.metas.migration.IScript;
 import de.metas.migration.IScriptsRegistry;
-import lombok.Value;
+// ...existing code...
 
 public class SQLDatabaseScriptsRegistry implements IScriptsRegistry
 {
 	private static final String ENV_UseInMemoryScriptsRegistry = "UseInMemoryScriptsRegistry";
 
-	private static final transient Logger logger = LoggerFactory.getLogger(SQLDatabaseScriptsRegistry.class.getName());
+				private static final Logger logger = LoggerFactory.getLogger(SQLDatabaseScriptsRegistry.class.getName());
 	private final SQLHelper sqlHelper;
 
 	private final boolean useInMemoryDatabase;
@@ -175,47 +175,55 @@ public class SQLDatabaseScriptsRegistry implements IScriptsRegistry
 	{
 
 		final Stopwatch stopwatch = Stopwatch.createStarted();
-		final Collection<ScriptName> scriptNames = sqlHelper.<ScriptName> retrieveRecords()
-				.sql("SELECT ProjectName, Name FROM AD_MigrationScript")
-				.collectionFactory(HashSet::new)
-				.rowLoader(rs -> ScriptName.ofProjectNameAndName(rs.getString("ProjectName"), rs.getString("Name")))
-				.execute();
+																		final Collection<ScriptName> scriptNames = sqlHelper.retrieveRecords(
+								"SELECT ProjectName, Name FROM AD_MigrationScript",
+								HashSet::new, resultSet -> {
+									final String projectName = resultSet.getString("ProjectName");
+									final String name = resultSet.getString("Name");
+									return ScriptName.ofProjectNameAndName(projectName, name);
+								});
 		stopwatch.stop();
 
 		logger.info("Loaded {} registry entries from database in {}", scriptNames.size(), stopwatch);
 		return scriptNames;
 	}
 
-	@Value
-	private static class ScriptName
-	{
-		public static ScriptName of(final IScript script)
-		{
-			final String projectName = script.getProjectName();
-			if (projectName == null)
-			{
-				throw new IllegalArgumentException("No projectName was set for " + script);
-			}
+				private static class ScriptName
+				{
+					public static ScriptName of(final IScript script)
+					{
+						final String projectName = script.getProjectName();
+						if (projectName == null)
+						{
+							throw new IllegalArgumentException("No projectName was set for " + script);
+						}
 
-			final String fileName = script.getFileName();
-			final String name = projectName + "->" + fileName;
+						final String fileName = script.getFileName();
+						final String name = projectName + "->" + fileName;
 
-			return new ScriptName(projectName, name);
-		}
+						return new ScriptName(projectName, name);
+					}
 
-		public static ScriptName ofProjectNameAndName(final String projectName, final String name)
-		{
-			return new ScriptName(projectName, name);
-		}
+					public static ScriptName ofProjectNameAndName(final String projectName, final String name)
+					{
+						return new ScriptName(projectName, name);
+					}
 
-		String projectName;
-		String name;
+					private final String projectName;
+					private final String name;
 
-		private ScriptName(final String projectName, final String name)
-		{
-			this.projectName = projectName;
-			this.name = name;
-		}
+					private ScriptName(final String projectName, final String name)
+					{
+						this.projectName = projectName;
+						this.name = name;
+					}
 
-	}
+					public String getProjectName() {
+						return projectName;
+					}
+
+					public String getName() {
+						return name;
+					}
+				}
 }
