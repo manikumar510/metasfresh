@@ -1,0 +1,180 @@
+[INFO] de.metas.parent .................................... SUCCESS [  1.420 s]
+[INFO] de.metas.migration ................................. SUCCESS [  0.011 s]
+[INFO] de.metas.migration.base ............................ SUCCESS [  2.587 s]
+[INFO] de.metas.migration.cli ............................. FAILURE [  0.843 s]
+[INFO] de.metas.scripts.rollout ........................... SKIPPED
+[INFO] de.metas.util ...................................... SKIPPED
+[INFO] de.metas.monitoring ................................ SKIPPED
+[INFO] de.metas.adempiere.adempiere.patched-ecs ........... SKIPPED
+[INFO] de.metas.adempiere.adempiere.migration-sql ......... SKIPPED
+[INFO] de.metas.global_qrcode.api ......................... SKIPPED
+[INFO] metasfresh-report .................................. SKIPPED
+[INFO] de.metas.report.jasper.commons ..................... SKIPPED
+[INFO] de.metas.adempiere.adempiere.base .................. SKIPPED
+[INFO] de.metas.util.web .................................. SKIPPED
+[INFO] de.metas.async ..................................... SKIPPED
+[INFO] metasfresh-dlm ..................................... SKIPPED
+[INFO] metasfresh-dlm-base ................................ SKIPPED
+[INFO] de.metas.elasticsearch ............................. SKIPPED
+[INFO] metasfresh-material ................................ SKIPPED
+[INFO] metasfresh-material-event .......................... SKIPPED
+[INFO] metasfresh-invoice_gateway.spi ..................... SKIPPED
+[INFO] vertical-healthcare_ch ............................. SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_commons SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_xversion SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_440.request SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_440.response SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_450.request SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_450.response SKIPPED
+[INFO] metasfresh-dunning_gateway.spi ..................... SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_base SKIPPED
+[INFO] metasfresh-invoice_gateway.api ..................... SKIPPED
+[INFO] de.metas.business .................................. SKIPPED
+[INFO] de.metas.acct.base ................................. SKIPPED
+[INFO] de.metas.device.api ................................ SKIPPED
+[INFO] de.metas.device.adempiere .......................... SKIPPED
+[INFO] de.metas.device.webui .............................. SKIPPED
+[INFO] de.metas.adempiere.adempiere.serverRoot ............ SKIPPED
+[INFO] de.metas.adempiere.adempiere.serverRoot.base ....... SKIPPED
+[INFO] de.metas.adempiere.adempiere.client ................ SKIPPED
+[INFO] de.metas.adempiere.adempiere ....................... SKIPPED
+[INFO] de.metas.storage ................................... SKIPPED
+[INFO] metasfresh-material-commons ........................ SKIPPED
+[INFO] metasfresh-material-cockpit ........................ SKIPPED
+[INFO] metasfresh-material-planning ....................... SKIPPED
+[INFO] metasfresh-material-dispo-commons .................. SKIPPED
+[INFO] de.metas.aggregation ............................... SKIPPED
+[INFO] de.metas.manufacturing ............................. SKIPPED
+[INFO] de.metas.workflow.rest-api ......................... SKIPPED
+[INFO] de.metas.report.jasper.client ...................... SKIPPED
+[INFO] de.metas.global_qrcode.services .................... SKIPPED
+[INFO] de.metas.swat ...................................... SKIPPED
+[INFO] de.metas.swat.base ................................. SKIPPED
+[INFO] de.metas.salescandidate.base ....................... SKIPPED
+[INFO] de.metas.document.archive.api ...................... SKIPPED
+[INFO] de.metas.document.archive .......................... SKIPPED
+[INFO] de.metas.document.archive.base ..................... SKIPPED
+[INFO] metasfresh-dunning_gateway.api ..................... SKIPPED
+[INFO] de.metas.printing.common ........................... SKIPPED
+[INFO] de.metas.printing.api .............................. SKIPPED
+[INFO] de.metas.printing.client ........................... SKIPPED
+[INFO] de.metas.printing .................................. SKIPPED
+[INFO] de.metas.printing.base ............................. SKIPPED
+[INFO] de.metas.dunning ................................... SKIPPED
+[INFO] de.metas.contracts ................................. SKIPPED
+[INFO] de.metas.dimension ................................. SKIPPED
+[INFO] de.metas.materialtracking .......................... SKIPPED
+[INFO] de.metas.shipper.gateway.spi ....................... SKIPPED
+[INFO] de.metas.shipper.gateway.commons ................... SKIPPED
+[INFO] de.metas.qualitymgmt ............................... SKIPPED
+[INFO] de.metas.handlingunits.base ........................ SKIPPED
+[INFO] de.metas.externalreference ......................... SKIPPED
+[INFO] de.metas.vertical.healthcare.alberta ............... SKIPPED
+[INFO] de.metas.externalsystem ............................ SKIPPED
+[INFO] de.metas.manufacturing.rest-api .................... SKIPPED
+[INFO] de.metas.document.refid ............................ SKIPPED
+[INFO] de.metas.device.scales ............................. SKIPPED
+[INFO] de.metas.edi ....................................... SKIPPED
+[INFO] de.metas.printing.esb.base ......................... SKIPPED
+[INFO] de.metas.printing.embedded-client .................. SKIPPED
+[INFO] de.metas.marketing ................................. SKIPPED
+[INFO] marketing-base ..................................... SKIPPED
+[INFO] marketing-cleverreach .............................. SKIPPED
+[INFO] marketing-serialletter ............................. SKIPPED
+[INFO] de.metas.vertical.creditscore ...................... SKIPPED
+[INFO] metasfresh-creditscore-base ........................ SKIPPED
+[INFO] de.metas.banking ................................... SKIPPED
+[INFO] de.metas.banking.base .............................. SKIPPED
+[INFO] metasfresh-creditscore-creditpass .................. SKIPPED
+[INFO] metasfresh-pharma.securpharm ....................... SKIPPED
+[INFO] de.metas.payment.esr ............................... SKIPPED
+[INFO] de.metas.payment.sepa .............................. SKIPPED
+[INFO] de.metas.payment.sepa.schema.pain_001_01_03_ch_02 .. SKIPPED
+[INFO] de.metas.payment.sepa.schema.pain_008_003_02 ....... SKIPPED
+[INFO] de.metas.payment.sepa.base ......................... SKIPPED
+[INFO] de.metas.payment.paypal ............................ SKIPPED
+[INFO] de.metas.payment.revolut ........................... SKIPPED
+[INFO] de.metas.payment.sumup ............................. SKIPPED
+[INFO] metasfresh-report-service .......................... SKIPPED
+[INFO] de.metas.rfq ....................................... SKIPPED
+[INFO] de.metas.procurement.base .......................... SKIPPED
+[INFO] de.metas.vendor.gateway.api ........................ SKIPPED
+[INFO] metasfresh-pharma.msv3.schema.v1 ................... SKIPPED
+[INFO] metasfresh-pharma.msv3.schema.v2 ................... SKIPPED
+[INFO] metasfresh-pharma.msv3.commons ..................... SKIPPED
+[INFO] metasfresh-pharma.vendor.gateway.msv3 .............. SKIPPED
+[INFO] de.metas.purchasecandidate.base .................... SKIPPED
+[INFO] de.metas.issue.tracking.github ..................... SKIPPED
+[INFO] de.metas.issue.tracking.everhour ................... SKIPPED
+[INFO] de.metas.serviceprovider.base ...................... SKIPPED
+[INFO] de.metas.shipper.gateway.derkurier ................. SKIPPED
+[INFO] de.metas.shipper.gateway.dhl ....................... SKIPPED
+[INFO] de.metas.shipper.gateway.dpd ....................... SKIPPED
+[INFO] de.metas.shipper.gateway.go ........................ SKIPPED
+[INFO] de.metas.shipper.client.nshift ..................... SKIPPED
+[INFO] de.metas.shipper.gateway.nshift .................... SKIPPED
+[INFO] metasfresh-datev ................................... SKIPPED
+[INFO] metasfresh-material-dispo-service .................. SKIPPED
+[INFO] de.metas.servicerepair.base ........................ SKIPPED
+[INFO] de-metas-salesorder ................................ SKIPPED
+[INFO] de.metas.pos.base .................................. SKIPPED
+[INFO] de.metas.fresh ..................................... SKIPPED
+[INFO] de.metas.fresh.base ................................ SKIPPED
+[INFO] metasfresh-pharma .................................. SKIPPED
+[INFO] metasfresh-pharma.msv3.server-peer ................. SKIPPED
+[INFO] metasfresh-pharma.msv3.server-peer-metasfresh ...... SKIPPED
+[INFO] de.metas.banking.camt53 ............................ SKIPPED
+[INFO] de.metas.ui.web.base ............................... SKIPPED
+[INFO] de.metas.manufacturing.webui ....................... SKIPPED
+[INFO] de.metas.adempiere.libero.liberoHR ................. SKIPPED
+[INFO] de.metas.acct.webui ................................ SKIPPED
+[INFO] de.metas.business.rest-api ......................... SKIPPED
+[INFO] de.metas.business.rest-api-impl .................... SKIPPED
+[INFO] metasfresh-report-service-standalone ............... SKIPPED
+[INFO] metasfresh-dlm-swingui ............................. SKIPPED
+[INFO] de.metas.banking.swingui ........................... SKIPPED
+[INFO] de.metas.inbound.mail .............................. SKIPPED
+[INFO] de.metas.fresh.swingui ............................. SKIPPED
+[INFO] de.metas.handlingunits.webui ....................... SKIPPED
+[INFO] de.metas.handlingunits.mobileui .................... SKIPPED
+[INFO] de.metas.payment.sumup.webui ....................... SKIPPED
+[INFO] de.metas.payment.sumup.rest-api .................... SKIPPED
+[INFO] de.metas.printing.rest-api-impl .................... SKIPPED
+[INFO] de.metas.swat.webui ................................ SKIPPED
+[INFO] de.metas.shipper.gateway.commons.webui ............. SKIPPED
+[INFO] metasfresh-pharma.msv3.server ...................... SKIPPED
+[INFO] vertical-healthcare_ch.forum_datenaustausch_ch.invoice_rest-api SKIPPED
+[INFO] de.metas.servicerepair.webui ....................... SKIPPED
+[INFO] de.metas.picking.rest-api .......................... SKIPPED
+[INFO] de.metas.hu_consolidation.mobile ................... SKIPPED
+[INFO] de.metas.distribution.rest-api ..................... SKIPPED
+[INFO] de.metas.inventory.mobileui ........................ SKIPPED
+[INFO] de.metas.pos.rest-api .............................. SKIPPED
+[INFO] metasfresh-webui-api ............................... SKIPPED
+[INFO] metasfresh-dist .................................... SKIPPED
+[INFO] metasfresh-dist-base ............................... SKIPPED
+[INFO] de.metas.frontend-testing .......................... SKIPPED
+[INFO] metasfresh-dist-serverRoot ......................... SKIPPED
+[INFO] metasfresh-dist-swingui ............................ SKIPPED
+[INFO] metasfresh-dist-dist ............................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+
+
+[INFO] de-metas-common .................................... SUCCESS [  0.601 s]
+[INFO] de-metas-common-util ............................... FAILURE [  2.283 s]
+[INFO] de-metas-common-rest_api ........................... SKIPPED
+[INFO] de-metas-common-changelog .......................... SKIPPED
+[INFO] de-metas-common-externalsystem ..................... SKIPPED
+[INFO] de-metas-common-externalreference .................. SKIPPED
+[INFO] de-metas-common-bpartner ........................... SKIPPED
+[INFO] de-metas-common-filemaker .......................... SKIPPED
+[INFO] de-metas-common-shipping ........................... SKIPPED
+[INFO] de-metas-common-manufacturing ...................... SKIPPED
+[INFO] de-metas-common-procurement ........................ SKIPPED
+[INFO] de-metas-common-pricing ............................ SKIPPED
+[INFO] de-metas-common-product ............................ SKIPPED
+[INFO] de-metas-common-ordercandidates .................... SKIPPED
+[INFO] de-metas-common-delivery ........................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE

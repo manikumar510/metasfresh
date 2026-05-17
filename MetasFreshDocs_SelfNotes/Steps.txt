@@ -1,0 +1,32 @@
+Step 1: Install using "mvn Install" all the libraries in the path of "metasfresh-maven-repo\repository\"
+-------------------------------------------------------------------------------------------------------------
+mvn install:install-file -Dfile=roboto-fonts-2012023.1-2.jar -DgroupId=de.metas.report.jasper -DartifactId=roboto-fonts -Dversion=2012023.1-2 -Dpackaging=jar
+
+mvn install:install-file -Dfile=nimbus-fonts-1.00.jar -DgroupId=de.metas.report.jasper -DartifactId=nimbus-fonts -Dversion=1.00 -Dpackaging=jar
+
+mvn install:install-file -Dfile=cantarell-fonts-001.001.jar -DgroupId=de.metas.report.jasper -DartifactId=cantarell-fonts -Dversion=001.001 -Dpackaging=jar
+
+mvn install:install-file -Dfile=liberation-sans-1.05.jar -DgroupId=de.metas.report.jasper -DartifactId=liberation-sans -Dversion=1.05 -Dpackaging=jar
+
+mvn install:install-file -Dfile=montserrat-fonts-8.000.jar -DgroupId=de.metas.report.jasper -DartifactId=montserrat-fonts -Dversion=8.000 -Dpackaging=jar
+
+mvn install:install-file -Dfile=source-code-pro-fonts-1.0.0.jar -DgroupId=de.metas.report.jasper -DartifactId=source-code-pro-fonts -Dversion=1.0.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=jpedal-1.0.jar -DgroupId=org.jpedal -DartifactId=jpedal -Dversion=1.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=jp.osdn.ocra-0.2.jar -DgroupId=jp.osdn.ocra -DartifactId=jp.osdn.ocra -Dversion=0.2 -Dpackaging=jar
+
+mvn install:install-file -Dfile=jp.osdn.ocrb-0.2.1.jar -DgroupId=jp.osdn.ocrb -DartifactId=jp.osdn.ocrb -Dversion=0.2.1 -Dpackaging=jar
+
+
+Step 2: Open Intellij Project, And Maven Clean and Install the parent Project of "metasfresh-dist-orgs"
+---------------------------------------------------------------------------------------
+
+Step 3: Open , And Maven Clean and Install the parent Project of "metasfresh\misc\parent-pom"
+---------------------------------------------------------------------------------------
+
+Step 4: Open , And Maven Clean and Install the parent Project of "metasfresh\misc\de-metas-common"
+---------------------------------------------------------------------------------------
+
+Step 5: Open , And Maven Clean and Install the parent Project of "metasfresh\backend"
+---------------------------------------------------------------------------------------

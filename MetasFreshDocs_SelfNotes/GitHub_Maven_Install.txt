@@ -1,0 +1,30 @@
+Create Personal Access Token (PAT) from GIThub (https://github.com/settings/tokens)
+--------------------
+XXXXXXXXXX
+
+git clone -c core.longpaths=true https://GITHUB_USERNAME:XXXXXXXXXX@github.com/manikumar510/metasfresh.git
+
+When you get Error like "filename too long git error" in git clone
+For Global Setting:
+git config --global core.longpaths true
+For Local Clone Setting:
+git clone -c core.longpaths=true https://GITHUB_USERNAME:XXXXXXXXXX@github.com/manikumar510/metasfresh.git
+
+git clone -c core.longpaths=true https://GITHUB_USERNAME:XXXXXXXXXX@github.com/manikumar510/metasfresh-dist-orgs.git
+
+git clone -c core.longpaths=true https://GITHUB_USERNAME:XXXXXXXXXX@github.com/manikumar510/metasfresh-maven-repo.git
+
+mvn install:install-file -Dfile=jpedal-1.0.jar -DgroupId=org.jpedal -DartifactId=jpedal -Dversion=1.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=roboto-fonts-2012023.1-2.jar -DgroupId=de.metas.report.jasper -DartifactId=roboto-fonts -Dversion=2012023.1-2 -Dpackaging=jar
+
+mvn install:install-file -Dfile=nimbus-fonts-1.00.jar -DgroupId=de.metas.report.jasper -DartifactId=nimbus-fonts -Dversion=1.00 -Dpackaging=jar
+
+mvn install:install-file -Dfile=cantarell-fonts-001.001.jar -DgroupId=de.metas.report.jasper -DartifactId=cantarell-fonts -Dversion=001.001 -Dpackaging=jar
+
+mvn install:install-file -Dfile=liberation-sans-1.05.jar -DgroupId=de.metas.report.jasper -DartifactId=liberation-sans -Dversion=1.05 -Dpackaging=jar
+
+mvn install:install-file -Dfile=montserrat-fonts-8.000.jar -DgroupId=de.metas.report.jasper -DartifactId=montserrat-fonts -Dversion=8.000 -Dpackaging=jar
+
+mvn install:install-file -Dfile=source-code-pro-fonts-1.0.0.jar -DgroupId=de.metas.report.jasper -DartifactId=source-code-pro-fonts -Dversion=1.0.0 -Dpackaging=jar
+
